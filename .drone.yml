@@ -5,10 +5,11 @@ workspace:
 pipeline:
   build:
     image: hungo/aws-cli-test
+    secrets: [ h_server, h_token ]
     commands:
       - cd /root/
       - echo ${h_server}
-      - echo ${h_token}
+      - echo $h_token
 
   trigger:
     image: quay.io/ukhomeofficedigital/drone-trigger:latest
