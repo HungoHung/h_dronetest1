@@ -9,7 +9,9 @@ pipeline:
     commands:
       - cd /root/
       - echo ${H_SERVER}
+      - echo $H_SERVER
       - echo ${H_TOKEN}
+      - echo $H_TOKEN
 
   trigger:
     image: quay.io/ukhomeofficedigital/drone-trigger:latest
