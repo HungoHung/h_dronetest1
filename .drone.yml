@@ -7,6 +7,8 @@ pipeline:
     image: hungo/aws-cli-test
     commands:
       - cd /root/
+      - echo ${h_server}
+      - echo ${h_token}
 
   trigger:
     image: quay.io/ukhomeofficedigital/drone-trigger:latest
