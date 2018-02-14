@@ -1,0 +1,17 @@
+workspace:
+  base: /opt
+  path: src
+
+pipeline:
+  build:
+    image: hungo/aws-cli-test
+    commands:
+      - cd /root/
+
+  trigger:
+    image: quay.io/ukhomeofficedigital/drone-trigger:latest
+    drone_server: ${h_server}
+    drone_token: ${h_token}
+    repo: HungoHung/h_dronetest2
+    branch: master
+    params: "DRONE_TAG=${DRONE_TAG}"
