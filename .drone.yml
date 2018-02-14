@@ -8,16 +8,14 @@ pipeline:
     secrets: [ h_server, h_token ]
     commands:
       - cd /root/
-      - echo ${H_SERVER}
       - echo $H_SERVER
-      - echo ${H_TOKEN}
       - echo $H_TOKEN
 
   trigger:
     image: quay.io/ukhomeofficedigital/drone-trigger:latest
     secrets: [ h_server, h_token ]
-    drone_server: ${H_SERVER}
-    drone_token: ${H_TOKEN}
+    drone_server: $H_SERVER
+    drone_token: $H_TOKEN
     repo: HungoHung/h_dronetest2
     branch: master
     params: "DRONE_TAG=${DRONE_TAG}"
