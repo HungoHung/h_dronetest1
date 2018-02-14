@@ -12,6 +12,15 @@ pipeline:
       - echo $H_TOKEN
 
   trigger:
+    image: plugins/downstream
+    secrets: [ h_server, h_token ]
+    server: $H_SERVER
+    token: $H_TOKEN
+    fork: true
+    repositories:
+      - HungoHung/h_dronetest2
+
+  trigger:
     image: quay.io/ukhomeofficedigital/drone-trigger:latest
     secrets: [ h_server, h_token ]
     drone_server: $H_SERVER
